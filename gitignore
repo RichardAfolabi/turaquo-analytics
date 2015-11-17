@@ -1,0 +1,6 @@
+venv
+*.pyc
+*.DS_Store
+StackOverflow/
+*.ipynb_checkpoints
+__pycache__
