@@ -25,13 +25,14 @@
                           {{ script | safe }}
                           {{ div | safe }}
 
-                      {% else %}
+                      {% elif plot_images %}
                           {% for img in plot_images %}
                             <div class="col-md-4">
                                 <img src="{{ url_for('static', filename= img|string() ) | e }}" class="img-responsive">
                             </div>
                           {% endfor %}
-
+                      {% else %}
+                          <img src="{{url_for('static',filename="img/fiber-optix-links.png")}}" class="img-responsive">
                       {% endif %}
                   </div>
               </div>
@@ -108,7 +109,7 @@
                 <div class="panel-body">
                     <form name="analysis" method="post">
                         <p><button type="submit" name="submit" value="analysis_btn1"
-                                   class="btn btn-success btn-lg btn-block">Connections on US Map</button></p>
+                                   class="btn btn-success btn-lg btn-block">View on Interactive US Map</button></p>
                         <p><button type="submit" name="submit" value="analysis_btn2"
                                    class="btn btn-danger btn-lg btn-block" disabled="disabled">Visualize as Network Graphs</button></p>
                         <p><button type="submit" name="submit" value="analysis_btn3"

@@ -94,7 +94,12 @@ def index():
             return render_template('index.html', about=about_plot, plot_images=plot_images, description=desc)
 
         elif request.form['submit'] == 'analysis_btn1':
-            return redirect(url_for('index'))
+            desc = analysis_btn1_desc
+            about_plot = 'Fiber optics links within United States'
+            hover_text, plot_fig = make_us_map(state_map)
+            script, div = components(plot_fig)
+            return render_template('index.html', about=about_plot, script=script, div=div, hover=hover_text,
+                                   description=desc)
 
         elif request.form['submit'] == 'analysis_btn2':
             return render_template('tester.html')
@@ -106,11 +111,7 @@ def index():
             return redirect(url_for('index'))    # Unknown. Return home.
 
     else:            # request.method == 'GET'
-        desc = analysis_btn1_desc
-        about_plot = 'Fiber optics links within United States'
-        hover_text, plot_fig = make_us_map(state_map)
-        script, div = components(plot_fig)
-        return render_template('index.html',about=about_plot, script=script, div=div, hover=hover_text,description=desc)
+        return render_template('index.html')
 
 
 if __name__ == '__main__':
