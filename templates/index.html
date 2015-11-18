@@ -40,8 +40,8 @@
 
         {% if description %}
             <div class="row">
-            <h3 class="hl" id="info-boards">Plot Descriptions</h3>
-                <div class="col-md-8 col-md-offset-2">
+{#            <h3 class="hl" id="info-boards">Plot Descriptions</h3>#}
+                <div class="col-md-10 col-md-offset-1">
                     {% set panel_colr = ['info-board-green', 'info-board-red', 'info-board-orange', 'info-board-blue'] | random %}
                     <div class="info-board {{ panel_colr }}">
                         <p> {{ description | e}}</p>
@@ -64,7 +64,7 @@
         </div>
 
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-sm-4">
               <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-location-arrow ui-icon"></i> <strong>Query by Cities</strong></div>
                 <div class="panel-body">
@@ -83,7 +83,7 @@
           </div>
 
 
-          <div class="col-md-4">
+          <div class="col-sm-4">
               <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-university ui-icon"></i> <strong>Query by States</strong></div>
                 <div class="panel-body">
@@ -102,7 +102,7 @@
           </div>
 
 
-          <div class="col-md-4">
+          <div class="col-sm-4">
               <div class="panel panel-default">
                 <div class="panel-heading"><i class="fa fa-pie-chart ui-icon"></i> <strong> Analysis Query</strong></div>
                 <div class="panel-body">

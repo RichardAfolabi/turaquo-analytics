@@ -1,6 +1,5 @@
-from collections import OrderedDict
-from bokeh.plotting import figure, ColumnDataSource
-from bokeh.models import HoverTool
+
+from bokeh.plotting import ColumnDataSource
 from bokeh.sampledata import us_states
 from fiber_functions import find_states_missing
 from fiber_optics_dataset import state_map
@@ -36,8 +35,6 @@ def us_map_data_source(df_state_map):
     del usa_states['AK']
     del usa_states['HI']
 
-    # fxn_state_map = df_state_map.sort_values('State_Difference', ascending=False)
-
     us_state_xs = [usa_states[code]["lons"] for code in usa_states]
     us_state_ys = [usa_states[code]["lats"] for code in usa_states]
 
@@ -67,22 +64,3 @@ def us_map_data_source(df_state_map):
         ))
     return sources
 
-
-def make_us_map(df_state_map):
-    """ Plot of US Long-haul fiber optics connection statistics
-    Signature : hover_text, plot_fig = make_us_map()
-    """
-    sources = us_map_data_source(df_state_map)
-
-    plot = figure(tools=TOOLS, plot_width=850, plot_height=500, toolbar_location='left', responsive=True)
-    plot.patches('x', 'y', fill_color='color', line_color="#333333", line_width=0.5, source=sources)
-
-    # Configure the tooltips
-    hover = plot.select(dict(type=HoverTool))
-    hover.point_policy = "follow_mouse"
-    hover.tooltips = OrderedDict([
-        ("Name ", "@name"),
-        ("Incoming Fiber Links ", " @incoming"),
-        ("Outgoing Fiber Links ", " @outgoing")
-    ])
-    return hover, plot
