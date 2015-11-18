@@ -14,23 +14,48 @@
 
 
 {% block page_content %}
-        <div class="container">
-            <div class="row">
-              <div class="col-md-12">
-{#                <h1 class="hl text-center top-zero section-header">{{ about | safe }}</h1>#}
-                  <div class="panel panel-default">
-                      <div class="panel-heading text-center"><h3 class="hl" id="panels">{{ about | safe }}</h3> </div>
-                      <div class="panel-body">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+              <div class="panel panel-default">
+                  <div class="panel-heading text-center"><h3 class="hl" id="panels">{{ about | safe }}</h3> </div>
+                  <div class="panel-body">
+                      {% if div %}
+
                           {{ script | safe }}
                           {{ div | safe }}
-                      </div>
+
+                      {% else %}
+                          {% for img in plot_images %}
+                            <div class="col-md-4">
+                                <img src="{{ url_for('static', filename= img|string() ) | e }}" class="img-responsive">
+                            </div>
+                          {% endfor %}
+
+                      {% endif %}
                   </div>
               </div>
-            </div>
+          </div>
         </div>
+
+        {% if description %}
+            <div class="row">
+            <h3 class="hl" id="info-boards">Plot Descriptions</h3>
+                <div class="col-md-8 col-md-offset-2">
+                    {% set panel_colr = ['info-board-green', 'info-board-red', 'info-board-orange', 'info-board-blue'] | random %}
+                    <div class="info-board {{ panel_colr }}">
+                        <p> {{ description | e}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    </div>
+
 
 
     <div class="container">
+
         <div class="row">
                 <div class="block-header">
                     <h2> <span class="title">RUN QUERIES - EXPLORE THE DATA</span><span class="decoration"></span>
@@ -50,8 +75,8 @@
                                    class="btn btn-danger btn-lg btn-block">Cities w/ Low Outgoing Links</button></p>
                         <p><button type="submit" name="submit" value="city_btn3"
                                    class="btn btn-primary btn-lg btn-block">Cities Utilization Differences</button></p>
-                        <p><button type="submit" name="submit" value="state_btn4"
-                                   class="btn btn-dark btn-lg btn-block" disabled="disabled">City Connection Correlations</button></p>
+                        <p><button type="submit" name="submit" value="city_btn4"
+                                   class="btn btn-dark btn-lg btn-block">City Connection Correlations</button></p>
                     </form>
                 </div>
               </div>
@@ -70,21 +95,22 @@
                         <p><button type="submit" name="submit" value="state_btn3"
                                    class="btn btn-primary btn-lg btn-block">Utilization Difference</button></p>
                         <p><button type="submit" name="submit" value="state_btn4"
-                                   class="btn btn-dark btn-lg btn-block" disabled="disabled">State Links Correlations</button></p>
+                                   class="btn btn-dark btn-lg btn-block">State Links Correlations</button></p>
                     </form>
                 </div>
               </div>
           </div>
 
+
           <div class="col-md-4">
               <div class="panel panel-default">
-                <div class="panel-heading"><i class="fa fa-pie-chart ui-icon"></i><strong>Analysis Query</strong></div>
+                <div class="panel-heading"><i class="fa fa-pie-chart ui-icon"></i> <strong> Analysis Query</strong></div>
                 <div class="panel-body">
                     <form name="analysis" method="post">
                         <p><button type="submit" name="submit" value="analysis_btn1"
                                    class="btn btn-success btn-lg btn-block">Connections on US Map</button></p>
                         <p><button type="submit" name="submit" value="analysis_btn2"
-                                   class="btn btn-danger btn-lg btn-block">Visualize as Graphs</button></p>
+                                   class="btn btn-danger btn-lg btn-block" disabled="disabled">Visualize as Network Graphs</button></p>
                         <p><button type="submit" name="submit" value="analysis_btn3"
                                    class="btn btn-primary btn-lg btn-block"  disabled="disabled">Telecom Op. Link Share Graph</button></p>
                         <p><button type="submit" name="submit" value="analysis_btn4"

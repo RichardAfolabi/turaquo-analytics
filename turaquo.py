@@ -46,7 +46,12 @@ def index():
             return render_template('index.html', script=script, div=div, about=about_plot)
 
         elif request.form['submit'] == 'city_btn4':
-            return render_template('tester.html')
+            about_plot = 'Correlation information on the locations of Fiber optic conduits - CITY'
+            desc = 'Regression plot to evaluate the correlation of the location information available ' \
+                   'for the conduits. Positive Pearson r statistics indicates possible linear relationships ' \
+                   'while negative shows inverse relationship. '
+            plot_images = ['img/city_out_vs_in.png', 'img/city_in_vs_diff.png', 'img/city_out_vs_diff.png']
+            return render_template('index.html', about=about_plot, plot_images=plot_images, description=desc)
 
         elif request.form['submit'] == 'state_btn1':
             plot_colors = brewer["RdPu"][3]
@@ -66,9 +71,6 @@ def index():
             script, div = components(bar)
             return render_template('index.html', script=script, div=div, about=about_plot)
 
-        elif request.form['submit'] == 'state_btn4':
-            return render_template('tester.html')
-
         elif request.form['submit'] == 'state_btn3':
             plot_colors = brewer["PiYG"][state_diff.size]
             about_plot = 'Differences between Incoming and Outgoing Links for selected States'
@@ -77,6 +79,14 @@ def index():
             bar = plot_stacked_bar_chart(state_diff, label_x, label_y, plot_colors, lg_pos='bottom_left')
             script, div = components(bar)
             return render_template('index.html', script=script, div=div, about=about_plot)
+
+        elif request.form['submit'] == 'state_btn4':
+            about_plot = 'Correlation information on the locations of Fiber optic conduits - STATES'
+            desc = 'Regression plot to evaluate the correlation of the location information available ' \
+                   'for the conduits. Positive Pearson r statistics indicates possible linear relationships ' \
+                   'while negative shows inverse relationship. '
+            plot_images = ['img/state_out_vs_in.png', 'img/state_in_vs_diff.png', 'img/state_out_vs_diff.png']
+            return render_template('index.html', about=about_plot, plot_images=plot_images, description=desc)
 
         elif request.form['submit'] == 'analysis_btn1':
             return redirect(url_for('index'))
