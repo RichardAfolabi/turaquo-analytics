@@ -18,8 +18,6 @@
     <!-- CSS Custom -->
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Lato:100,300,400'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">#}
-{#    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">#}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
     <!-- CSS Custom -->
@@ -62,92 +60,39 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="{{ url_for('index') }}">TURAQUO Analytics - Bokeh 'n Flask App</a>
+              <a class="navbar-brand" href="{{ url_for('index') }}">TURAQUO Analytics</a>
             </div>
+            <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="dropdown active">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Telecoms Networks Analytics</a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Network Security Analytics </a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inmate Sentiment Analytics</a>
+                </li>
+              </ul>
+
+            </div>
+
           </div>
     </div>
 
-
     <div id="wrapper">
-
-        <!-- Elastic categories -->
-        <div class="elastic_category">
-                <div class="row">
-                  <div class="col-md-12">
-
-                    <div class="services">
-                      <div class="services__item">
-                        <div class="services-item__body change_color">
-                          <i class="services-item__icon fa fa-arrows-alt fa-3x"></i>
-                          <div class="services-item__content">
-                            <p class="services-item__caption">Telecoms Infrastructure analytics</p>
-                            <a class="services-item__link" href="{{ url_for('index') }}">In Progress</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="services__item">
-                        <div class="services-item__body">
-                          <i class="services-item__icon fa fa-users fa-3x"></i>
-                          <div class="services-item__content">
-                              <p class="services-item__caption">Employee/Workforce data analytics</p>
-                            <a class="services-item__link" href="#">Pending</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="services__item">
-                        <div class="services-item__body">
-                          <i class="services-item__icon fa fa-bar-chart fa-3x"></i>
-                          <div class="services-item__content">
-                            <p class="services-item__caption">Websites traffic analytics</p>
-                            <a class="services-item__link" href="#">Pending</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="services__item">
-                        <div class="services-item__body">
-                          <i class="services-item__icon fa fa-laptop fa-3x"></i>
-                          <div class="services-item__content">
-                            <p class="services-item__caption">Network security analytics </p>
-                            <a class="services-item__link" href="#">Pending</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="services__item">
-                        <div class="services-item__body">
-                          <i class="services-item__icon fa fa-balance-scale fa-3x"></i>
-                          <div class="services-item__content">
-                            <p class="services-item__caption">Inmate sentiment analytics</p>
-                            <a class="services-item__link" href="#">Pending</a>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="clearfix"></div>
-                    </div>
-
-                  </div>
-                </div>
-
-        </div>
-
-
-
-        {% with messages = get_flashed_messages()  %}
-        {% if messages %}
-
-        <div class="section-header">
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12">
-                      {% for message in messages %}
-                            <h2 class="animated slideInLeft text-success">{{ message }}</h2>
-                      {% endfor %}
-                </div>
-              </div>
+      <div class="section-header">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+                {% if messages %}
+                    <!-- Remove the .animated class if you don't want things to move -->
+                    <h1 class="animated slideInLeft text-success"><span>{{ messages }}</span></h1>
+                {% endif %}
             </div>
+          </div>
         </div>
-
-        {% endif %}
-        {% endwith %}
+      </div>
 
         <!-- Dynamic contents starts here -->
         {% block page_content %}
@@ -159,14 +104,12 @@
 
 
 
-
-
     <!-- Legal  -->
     <div class="legal">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <p class="pull-left">&copy; Copyright 2015 TURAQUO Analytics.</p>
+            <p class="pull-left">&copy; Copyright 2015 TURAQUO Analytics - Bokeh & Flask App</p>
           </div>
           <div class="col-md-4 list-inline">
             <ul class="pull-right">

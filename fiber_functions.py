@@ -14,13 +14,13 @@ def postalcode_scraper():
     # Scrape the page with Pandas 
     table_scrape = pd.read_html(data_url)[1]
     
-    # Subtitute spaces in State names with '_' to confirm with existing dataset
+    # Substitute spaces in State names with '_' to confirm with existing dataset
     table_scrape[0] = [tab.replace(' ', '_') for tab in table_scrape[0]]
     
     # Reindex using corrected state names to confirm to existing dataframe formats
     table_scrape.index = table_scrape[0]
     
-    # Remove extranous data elements and unneeded columns
+    # Remove extraneous data elements and unneeded columns
     table_scrape.drop([0, 1], axis=1, inplace=True)
     table_scrape.drop('State', inplace=True)
 
