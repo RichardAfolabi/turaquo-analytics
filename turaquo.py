@@ -111,7 +111,13 @@ def index():
             return redirect(url_for('index'))    # Unknown. Return home.
 
     else:            # request.method == 'GET'
-        return render_template('index.html')
+        desc = analysis_btn1_desc
+        about_plot = 'Fiber optics links within United States'
+        hover_text, plot_fig = make_us_map(state_map)
+        script, div = components(plot_fig)
+        return render_template('index.html', about=about_plot, script=script, div=div, hover=hover_text,
+                               description=desc)
+        # return render_template('index.html')
 
 
 if __name__ == '__main__':
