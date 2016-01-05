@@ -15,6 +15,11 @@ TOOLS = "pan,reset,hover,save"
 app = Flask(__name__)
 
 
+@app.route('/telecoms_infra')
+def telecoms_infra():
+    return redirect(url_for('index'))
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
