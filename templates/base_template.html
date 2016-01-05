@@ -64,15 +64,9 @@
             </div>
             <div class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
-                <li class="dropdown active">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Telecoms Networks Analytics</a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Network Security Analytics </a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Inmate Sentiment Analytics</a>
-                </li>
+                <li class="active"> <a href="{{ url_for('index') }}">Telecoms Networks Analytics</a> </li>
+                <li><a href="{{ url_for('network_intel') }}"> Network IP Intelligence </a> </li>
+                <li> <a href="{{ url_for('sentiment_analysis') }}">Inmate Sentiment Analytics</a> </li>
               </ul>
 
             </div>

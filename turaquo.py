@@ -117,7 +117,16 @@ def index():
         script, div = components(plot_fig)
         return render_template('index.html', about=about_plot, script=script, div=div, hover=hover_text,
                                description=desc)
-        # return render_template('index.html')
+
+
+@app.route('/network_intel')
+def network_intel():
+    return render_template('network_intel.html')
+
+
+@app.route('/sentiment_analysis')
+def sentiment_analysis():
+    return render_template('sentiment_analysis.html')
 
 
 if __name__ == '__main__':
