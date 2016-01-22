@@ -6,12 +6,12 @@ postalcode_table = postalcode_scraper()
 
 # Load Node dataset from Amazon S3
 column_names = ['Nodes_City_State']
-node_url = 'https://s3.amazonaws.com/usa-long-haul-fiber-optics/nodes.txt'
+node_url = "https://s3-us-west-2.amazonaws.com/telecoms-analytics-dataset/nodes.txt"
 node_city_state = pd.read_csv(node_url, sep='\t', header=None, index_col=0, names=column_names)
 
 # Load edges dataset from Amazon S3
 column_names = ['Source', 'Sink']
-edges_url = "https://s3.amazonaws.com/usa-long-haul-fiber-optics/links.txt"
+edges_url = "https://s3-us-west-2.amazonaws.com/telecoms-analytics-dataset/links.txt"
 edges_src_snk = pd.read_csv(edges_url, names=column_names, header=None)
 
 # Merge both Source and Sink dataframes  with the corresponding codes
