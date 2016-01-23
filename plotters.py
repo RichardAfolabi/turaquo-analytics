@@ -1,8 +1,7 @@
 from collections import OrderedDict
 from bokeh.plotting import figure
 from bokeh.models import HoverTool
-
-from bokeh.charts import Bar
+from bokeh._legacy_charts import Bar
 from us_map_dataplot import us_map_data_source
 
 
