@@ -14,19 +14,62 @@
 
 
 {% block page_content %}
-    <div class="container" xmlns="http://www.w3.org/1999/html">
-            <div class="row">
-              <div class="col-md-12">
-                <h1 class="hl text-center top-zero section-header">App page in Progress....</h1>
-                  <div class="alert alert-info alert-dismissible"><p class="lead text-center"> Browse  <a href="http://richardafolabi.github.io/Presentation_js/System_Malware_Analytics.slides.html" target="_blank"><strong>iPython IP Intel project notebook as reveal.js slide deck</a> on GitHub.</strong></p></div>
-                  <div class="panel panel-default">
+    <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+                  <div class="panel-body">
+                      <div class="alert alert-info alert-dismissible">
+                          <p class="lead text-center"> Browse iPython <a href="http://richardafolabi.github.io/Presentation_js/System_Malware_Analytics.slides.html" target="_blank">
+                              <strong>project notebook slide deck. </strong></a></p></div>
 
+
+                        <iframe width="100%" height="500" frameborder="0" scrolling="no" autosize="True" link="false"
+                                modebar="false" logo="false" style="margin-top: -20px"
+                                src= {{ "https://plot.ly/~RichardAfolabi/" ~ embed_url | e}} >
+                        </iframe>
 
                   </div>
-              </div>
-            </div>
+          </div>
         </div>
+    </div>
 
+
+
+
+    <div class="container">
+
+        <div class="row">
+          <div class="col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"><i class="fa fa-location-arrow ui-icon"></i> <strong>Exploratory Query</strong></div>
+                <div class="panel-body">
+                  <div class="recent-blogs">
+                    <ul>
+                      <li><a href="{{ url_for('continent_traffic') }}">Average Malicious Traffic by CONTINENT over Time</a></li>
+                      <li><a href="{{ url_for('country_traffic') }}">Average Malicious Traffic by COUNTRY over Time </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
+
+          <div class="col-sm-6">
+              <div class="panel panel-default">
+                <div class="panel-heading"><i class="fa fa-pie-chart ui-icon"></i> <strong> Exploratory Query</strong></div>
+                <div class="panel-body">
+                  <div class="recent-blogs">
+                    <ul>
+                      <li><a href="{{ url_for('malicious_traffic') }}">Frequency of Malicious IP CLASSES on the Network</a></li>
+                      <li><a href="{{ url_for('average_duration') }}">AVERAGE Duration of Occurrence of Attacks by IP CLASSES </a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
 
 
 

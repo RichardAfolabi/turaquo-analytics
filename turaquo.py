@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from bokeh.embed import components
 from bokeh.palettes import brewer
+import bleach
 
 # from us_map_dataplot import make_us_map
 from about_plots import *
@@ -124,9 +125,34 @@ def index():
                                description=desc)
 
 
-@app.route('/network_intel')
+@app.route('/network_intel', methods=['GET', 'POST'])
 def network_intel():
-    return render_template('network_intel.html')
+    embed_url = '432.embed'
+    return render_template('network_intel.html', embed_url=embed_url)
+
+
+@app.route('/country_traffic')
+def country_traffic():
+    embed_url = '438.embed'
+    return render_template('network_intel.html', embed_url=embed_url)
+
+
+@app.route('/average_duration')
+def average_duration():
+    embed_url = '434.embed'
+    return render_template('network_intel.html', embed_url=embed_url)
+
+
+@app.route('/malicious_traffic')
+def malicious_traffic():
+    embed_url = '430.embed'
+    return render_template('network_intel.html', embed_url=embed_url)
+
+
+@app.route('/continent_traffic')
+def continent_traffic():
+    embed_url = '436.embed'
+    return render_template('network_intel.html', embed_url=embed_url)
 
 
 @app.route('/sentiment_analysis')
