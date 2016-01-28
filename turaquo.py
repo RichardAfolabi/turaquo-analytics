@@ -2,7 +2,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from bokeh.embed import components
 from bokeh.palettes import brewer
-import bleach
 
 # from us_map_dataplot import make_us_map
 from about_plots import *
