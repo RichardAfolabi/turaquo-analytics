@@ -124,7 +124,7 @@ def index():
                                description=desc)
 
 
-@app.route('/network_intel', methods=['GET', 'POST'])
+@app.route('/network_intel')
 def network_intel():
     embed_url = '432.embed'
     return render_template('network_intel.html', embed_url=embed_url)
@@ -156,7 +156,9 @@ def continent_traffic():
 
 @app.route('/sentiment_analysis')
 def sentiment_analysis():
-    return render_template('sentiment_analysis.html')
+    embed_url = '432.embed'
+    desc = 'Nunc in neque nec arcu vulputate ullamcorper. Ut id orci ac arcu fringilla.'
+    return render_template('sentiment_analysis.html', embed_url=embed_url, description=desc)
 
 
 if __name__ == '__main__':
