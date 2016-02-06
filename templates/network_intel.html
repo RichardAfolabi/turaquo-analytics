@@ -11,63 +11,81 @@
 
 
 
-
-
 {% block page_content %}
     <div class="container">
         <div class="row">
-          <div class="col-md-12">
+          <div class="col-md-9">
                   <div class="panel-body">
-                      <div class="alert alert-info alert-dismissible">
+                      <div class="alert alert-info">
                           <p class="lead text-center"> Browse iPython <a href="http://richardafolabi.github.io/Presentation_js/System_Malware_Analytics.slides.html" target="_blank">
                               <strong>project notebook slide deck. </strong></a></p></div>
 
-
                         <iframe width="100%" height="500" frameborder="0" scrolling="no" autosize="True" link="false"
-                                modebar="false" logo="false" style="margin-top: -20px"
+                                modebar="false" logo="false" style="margin-top: -25px"
                                 src= {{ "https://plot.ly/~RichardAfolabi/" ~ embed_url | e}} >
                         </iframe>
-
                   </div>
           </div>
-        </div>
-    </div>
 
 
 
 
-    <div class="container">
 
-        <div class="row">
-          <div class="col-sm-6">
+          <div class="col-md-3">
               <div class="panel panel-default">
-                <div class="panel-heading"><i class="fa fa-location-arrow ui-icon"></i> <strong>Exploratory Query</strong></div>
-                <div class="panel-body">
-                  <div class="recent-blogs">
-                    <ul>
-                      <li><a href="{{ url_for('continent_traffic') }}">Average Malicious Traffic by CONTINENT over Time</a></li>
-                      <li><a href="{{ url_for('country_traffic') }}">Average Malicious Traffic by COUNTRY over Time </a></li>
-                    </ul>
+                  <div class="panel-heading"><i class="fa fa-area-chart ui-icon"></i><strong> EXPLORATORY QUERY</strong></div>
+                  <div class="panel-body">
+
+                    {% set panel_colr = ['info-board-green', 'info-board-orange', 'info-board-blue'] | random %}
+                    <div class="info-board {{ panel_colr }}" style="font-size: small; margin: 0 -10px">
+                        {% if description %}
+                            <p> {{ description | e}}</p>
+                        {% else %}
+                            <p><strong>Project Goal: </strong>Develop a network IP intelligence for cybersecurity that can learn, discover and prevent malicious attacks on a network. Users can also use the Intel from the service to serve location specific contents and geo-targeted ads to visitors.</p>
+                        {% endif %}
+                    </div>
                   </div>
-                </div>
+
+                  <div class="panel-footer">
+                      <div class="recent-blogs">
+                            <ul>
+                                <li><a href="{{ url_for('country_traffic') }}">Traffic by COUNTRY </a></li>
+                                <li><a href="{{ url_for('continent_traffic') }}">Traffic by CONTINENT</a></li>
+                                <li><a href="{{ url_for('malicious_traffic') }}">Malicious IP CLASSES (Freq)</a></li>
+                                <li><a href="{{ url_for('average_duration') }}">Attack Duration by IP Class </a></li>
+                            </ul>
+                      </div>
+                  </div>
+              </div>
+
+
+              <div class="panel panel-default">
+                  <div class="panel-heading"><i class="fa fa-database ui-icon"></i> About the Dataset</div>
+                  <div class="panel-body">
+                      <div class="row">
+                          <div class="col-md-4">
+                              <span style="font-size: 13px; text-transform: uppercase;">
+                                  <i class="fa fa-cube">Shape</i> <span style="font-weight: 600">44M X 23</span>
+                              </span>
+                          </div>
+                          <div class="col-md-4">
+                              <span style="font-size: 13px; text-transform: uppercase;">
+                                  <i class="fa fa-pie-chart"> Size</i> <span style="font-weight: 600">3.5GB</span>
+                              </span>
+                          </div>
+                          <div class="col-md-4">
+                              <span style="font-size: 13px; text-transform: uppercase;">
+                                  <i class="fa fa-cogs"> Type</i> <span style="font-weight: 600">Mixed</span>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
               </div>
           </div>
 
 
 
-          <div class="col-sm-6">
-              <div class="panel panel-default">
-                <div class="panel-heading"><i class="fa fa-pie-chart ui-icon"></i> <strong> Exploratory Query</strong></div>
-                <div class="panel-body">
-                  <div class="recent-blogs">
-                    <ul>
-                      <li><a href="{{ url_for('malicious_traffic') }}">Frequency of Malicious IP CLASSES on the Network</a></li>
-                      <li><a href="{{ url_for('average_duration') }}">AVERAGE Duration of Occurrence of Attacks by IP CLASSES </a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-          </div>
+
         </div>
     </div>
 
